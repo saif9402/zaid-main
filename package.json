@@ -9,7 +9,7 @@
     "@tailwindcss/postcss": "^4.1.11"
   },
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
+    "build": "tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
     "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
   }
 }
