@@ -303,18 +303,7 @@
                 <p class="text-sm text-gray-500">${property.location}</p>
 
                 <div class="text-sm text-gray-600">
-                  ${property.area || 0} m² · ${
-              property.rooms || "N/A"
-            } Rooms · ${property.bathrooms || "N/A"} Baths
-                </div>
-
-                <div class="flex flex-wrap gap-2 text-xs text-gray-600 mt-2">
-                  <span class="bg-gray-100 rounded px-2 py-1">${
-                    property.features?.[0] || "Feature"
-                  }</span>
-                  <span class="bg-gray-100 rounded px-2 py-1">${
-                    property.features?.[1] || "Feature"
-                  }</span>
+                  ${property.area || 0} m²
                 </div>
 
                 <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
