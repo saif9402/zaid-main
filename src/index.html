@@ -284,6 +284,9 @@
               "bg-white rounded-xl shadow-md overflow-hidden border";
 
             card.innerHTML = `
+            <a href="pages/property-details.html?id=${
+              property.id
+            }" class="block hover:shadow-lg transition">
               <div class="relative">
                 <img src="${
                   property.mainImage?.imageURL ||
@@ -309,6 +312,7 @@
                 <div class="text-sm text-gray-600">
                   ${property.area || 0} m²
                 </div>
+                </a>
 
                 <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
                   Contact Agent

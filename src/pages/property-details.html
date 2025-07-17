@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hurghada Estates</title>
+    <link href="../output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="font-sans text-gray-700">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed top-0 w-full z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <div class="flex items-center font-bold text-lg text-gray-900">
+          <img
+            src="../img/header.png"
+            alt="Hurghada Estates Logo"
+            class="h-6 w-auto mr-2"
+          />
+          Hurghada Estates
+        </div>
+
+        <!-- Add this button inside the navbar div, before the links -->
+        <button class="md:hidden text-gray-700" id="menu-btn">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+
+        <!-- Wrap nav links in a div and hide on small screens -->
+        <div
+          id="menu"
+          class="hidden md:flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 mt-4 md:mt-0"
+        >
+          <a href="#" class="hover:text-blue-700">Home</a>
+          <a href="#" class="hover:text-blue-700">Properties</a>
+          <a href="#" class="hover:text-blue-700">About</a>
+          <a href="#" class="hover:text-blue-700">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto mt-12 p-6 space-y-10">
+      <section>
+        <h2 class="text-3xl font-bold leading-tight">
+          Premium penthouse in central Hurghada with panoramic views
+        </h2>
+        <img
+          src="https://zaidrealstate.tryasp.net/PropertyImages/130725-355fdd66-6a33-4ee8-bca8-cad6eb761083-macos-big-sur-wallpaper-2-scaled.jpg"
+          alt="Main"
+          class="w-full h-96 object-cover rounded-lg mt-4"
+        />
+
+        <div class="flex space-x-4 overflow-x-auto mt-4">
+          <img
+            src="https://zaidrealstate.tryasp.net/PropertyImages/130725-a2c0faa5-1f11-4413-9cae-51d7946d5743-macos-big-sur-wallpaper-1-scaled.jpg"
+            alt="Image"
+            class="h-28 w-48 object-cover rounded-lg"
+          />
+        </div>
+
+        <!-- Icon Row Section -->
+        <div class="flex justify-center mt-6 text-blue-700">
+          <div class="flex space-x-12 items-center">
+            <!-- Property Type -->
+            <div class="flex items-center space-x-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-blue-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 10h4v10H3V10zm14 0h4v10h-4V10zM10 3h4v7h-4V3zM10 14h4v6h-4v-6z"
+                />
+              </svg>
+              <span>a Flat</span>
+            </div>
+
+            <!-- Area -->
+            <div class="flex items-center space-x-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-blue-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 7h18M3 12h18M3 17h18"
+                />
+              </svg>
+              <span>0m²</span>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-center space-x-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-blue-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"
+                />
+              </svg>
+              <span>Hurghada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-4 mt-4 flex items-center justify-between">
+          <p class="text-lg font-semibold">
+            Rent Price: <span class="text-blue-700 font-bold">1 EGP/month</span>
+          </p>
+          <button
+            class="px-4 py-2 border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white rounded"
+          >
+            Contact us
+          </button>
+        </div>
+      </section>
+
+      <section class="bg-gray-100 p-6 rounded">
+        <h3 class="text-lg font-semibold mb-4">Brief characteristics</h3>
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <p><strong>City:</strong> Hurghada</p>
+          <p><strong>Type:</strong> شقة</p>
+          <p><strong>Status:</strong> إيجار</p>
+          <p><strong>Usable area:</strong> 0 m²</p>
+        </div>
+      </section>
+
+      <section class="bg-gray-100 p-6 rounded">
+        <h3 class="text-lg font-semibold mb-4">Description</h3>
+        <p class="text-sm text-gray-700">string</p>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4"
+      >
+        <!-- Logo & Description -->
+        <div>
+          <div class="flex items-center mb-2">
+            <img src="../img/footer.png" alt="Logo" class="h-6 w-auto mr-2" />
+            <h4 class="text-white font-bold text-base">Hurghada Estates</h4>
+          </div>
+          <p class="text-sm">
+            Your trusted partner in finding the perfect property in Hurghada. We
+            specialize in luxury villas, modern apartments, and prime land
+            investments along the Red Sea coast.
+          </p>
+          <div class="flex space-x-4 mt-4 text-white text-lg">
+            <a href="#" class="hover:text-blue-400"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-pink-400"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-blue-300"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-white font-bold mb-2">Contact Info</h4>
+          <ul class="text-sm space-y-2">
+            <li class="flex items-center">
+              <img src="../img/contact.png" alt="Phone" class="h-4 w-4 mr-2" />
+              +20 65 123 4567
+            </li>
+            <li class="flex items-center">
+              <img src="../img/mail.png" alt="Email" class="h-4 w-4 mr-2" />
+              info@hurghadaestates.com
+            </li>
+            <li class="flex items-center">
+              <img
+                src="../img/location2.png"
+                alt="Location"
+                class="h-4 w-4 mr-2"
+              />
+              Hurghada, Red Sea, Egypt
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold mb-2">Quick Links</h4>
+          <ul class="text-sm space-y-2">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#" class="hover:underline">Properties</a></li>
+            <li><a href="#" class="hover:underline">About Us</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400"
+      >
+        © 2025 Hurghada Estates. All rights reserved.
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const params = new URLSearchParams(window.location.search);
+        const propertyId = params.get("id");
+
+        if (!propertyId) {
+          document.body.innerHTML =
+            "<h1 class='text-center mt-20'>Property ID not provided.</h1>";
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            `/api/Property/GetPropertyById/${propertyId}`
+          );
+          const result = await res.json();
+
+          if (!result.succeeded) {
+            document.body.innerHTML =
+              "<h1 class='text-center mt-20'>Failed to load property.</h1>";
+            return;
+          }
+
+          const property = result.data;
+
+          // Now populate DOM elements — you can select them by id or class and inject content.
+          document.querySelector("h2").textContent = property.name;
+          document.querySelector("img[alt='Main']").src =
+            property.mainImage?.imageURL;
+
+          const gallery = document.querySelector(".flex.space-x-4");
+          gallery.innerHTML = property.images
+            .map(
+              (img) =>
+                `<img src="${img.imageURL}" alt="Image" class="h-28 w-48 object-cover rounded-lg" />`
+            )
+            .join("");
+
+          document.querySelector("span:nth-of-type(1)").textContent =
+            property.type;
+          document.querySelector("span:nth-of-type(2)").textContent =
+            property.area + "m²";
+          document.querySelector("span:nth-of-type(3)").textContent =
+            property.location;
+
+          document.querySelector("p.text-lg span").textContent =
+            property.price + " EGP/month";
+
+          document.querySelector(
+            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(1)"
+          ).innerHTML = `<strong>City:</strong> ${property.location}`;
+          document.querySelector(
+            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(2)"
+          ).innerHTML = `<strong>Type:</strong> ${property.type}`;
+          document.querySelector(
+            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(3)"
+          ).innerHTML = `<strong>Status:</strong> ${property.status}`;
+          document.querySelector(
+            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(4)"
+          ).innerHTML = `<strong>Usable area:</strong> ${property.area} m²`;
+
+          document.querySelector(
+            "section.bg-gray-100:nth-of-type(2) p"
+          ).textContent = property.description;
+        } catch (err) {
+          console.error("Failed to load property:", err);
+          document.body.innerHTML =
+            "<h1 class='text-center mt-20'>Error loading property details.</h1>";
+        }
+      });
+    </script>
+  </body>
+</html>
