@@ -81,7 +81,7 @@
                   d="M3 10h4v10H3V10zm14 0h4v10h-4V10zM10 3h4v7h-4V3zM10 14h4v6h-4v-6z"
                 />
               </svg>
-              <span>a Flat</span>
+              <span id="property-type">a Flat</span>
             </div>
 
             <!-- Area -->
@@ -100,7 +100,7 @@
                   d="M3 7h18M3 12h18M3 17h18"
                 />
               </svg>
-              <span>0m²</span>
+              <span id="property-area">0m²</span>
             </div>
 
             <!-- Location -->
@@ -125,14 +125,17 @@
                   d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"
                 />
               </svg>
-              <span>Hurghada</span>
+              <span id="property-location">Hurghada</span>
             </div>
           </div>
         </div>
 
         <div class="bg-gray-100 p-4 mt-4 flex items-center justify-between">
           <p class="text-lg font-semibold">
-            Rent Price: <span class="text-blue-700 font-bold">1 EGP/month</span>
+            Rent Price:
+            <span id="property-price" class="text-blue-700 font-bold"
+              >1 EGP/month</span
+            >
           </p>
           <button
             class="px-4 py-2 border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white rounded"
@@ -145,16 +148,22 @@
       <section class="bg-gray-100 p-6 rounded">
         <h3 class="text-lg font-semibold mb-4">Brief characteristics</h3>
         <div class="grid grid-cols-2 gap-4 text-sm">
-          <p><strong>City:</strong> Hurghada</p>
-          <p><strong>Type:</strong> شقة</p>
-          <p><strong>Status:</strong> إيجار</p>
-          <p><strong>Usable area:</strong> 0 m²</p>
+          <p>
+            <strong>City:</strong> <span id="property-location2">Hurghada</span>
+          </p>
+          <p><strong>Type:</strong><span id="property-type2">شقة</span></p>
+          <p>
+            <strong>Status:</strong> <span id="property-status">إيجار</span>
+          </p>
+          <p>
+            <strong>Usable area:</strong><span id="property-area2"></span> m²
+          </p>
         </div>
       </section>
 
       <section class="bg-gray-100 p-6 rounded">
         <h3 class="text-lg font-semibold mb-4">Description</h3>
-        <p class="text-sm text-gray-700">string</p>
+        <p id="property-description" class="text-sm text-gray-700">string</p>
       </section>
     </main>
 
@@ -265,32 +274,23 @@
             )
             .join("");
 
-          document.querySelector("span:nth-of-type(1)").textContent =
-            property.type;
-          document.querySelector("span:nth-of-type(2)").textContent =
-            property.area + "m²";
-          document.querySelector("span:nth-of-type(3)").textContent =
+          document.getElementById("property-type").textContent = property.type;
+          document.getElementById("property-area").textContent =
+            property.area + " m²";
+          document.getElementById("property-location").textContent =
             property.location;
-
-          document.querySelector("p.text-lg span").textContent =
+          document.getElementById("property-price").textContent =
             property.price + " EGP/month";
 
-          document.querySelector(
-            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(1)"
-          ).innerHTML = `<strong>City:</strong> ${property.location}`;
-          document.querySelector(
-            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(2)"
-          ).innerHTML = `<strong>Type:</strong> ${property.type}`;
-          document.querySelector(
-            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(3)"
-          ).innerHTML = `<strong>Status:</strong> ${property.status}`;
-          document.querySelector(
-            "section.bg-gray-100:nth-of-type(1) p:nth-of-type(4)"
-          ).innerHTML = `<strong>Usable area:</strong> ${property.area} m²`;
+          document.getElementById("property-location2").textContent =
+            property.location;
+          document.getElementById("property-type2").textContent = property.type;
+          document.getElementById("property-status").textContent =
+            property.status;
+          document.getElementById("property-area2").textContent = property.area;
 
-          document.querySelector(
-            "section.bg-gray-100:nth-of-type(2) p"
-          ).textContent = property.description;
+          document.getElementById("property-description").textContent =
+            property.description;
         } catch (err) {
           console.error("Failed to load property:", err);
           document.body.innerHTML =
