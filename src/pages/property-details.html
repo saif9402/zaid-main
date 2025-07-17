@@ -131,8 +131,8 @@
         </div>
 
         <div class="bg-gray-100 p-4 mt-4 flex items-center justify-between">
-          <p class="text-lg font-semibold">
-            <span id="property-price" class="text-blue-700 font-bold"></span>
+          <p id="property-price" class="text-lg font-semibold">
+            <span  class="text-blue-700 font-bold"></span>
               Rent Price: 1 EGP/month</span
             >
           </p>
@@ -280,13 +280,12 @@
           document.getElementById("property-location").textContent =
             property.location;
 
-            if(property.status === "إيجار"){
-                document.getElementById("property-price").textContent = "Rent Price: " + property.price + " EGP/Month"
-            }else{
-                document.getElementById("property-price").textContent = "Sale Price: " + property.price + " EGP"
+          if (property.status === "إيجار") {
+            document.getElementById("property-price").innerHTML = `Rent Price: <span class="text-blue-700 font-bold">${property.price}</span> EGP/Month`;
+          } else {
+            document.getElementById("property-price").innerHTML = `Sale Price: <span class="text-blue-700 font-bold">${property.price}</span> EGP`;
 
-            }
-          
+          }
 
           document.getElementById("property-location2").textContent =
             property.location;
