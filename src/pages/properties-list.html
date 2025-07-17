@@ -49,12 +49,24 @@
     <header class="py-10 px-4 mt-10 text-center">
       <h1 class="text-3xl font-bold mb-2">Properties in Hurghada</h1>
       <p class="text-gray-600">
-        Discover 6 properties that match your criteria
+        Discover <span id="properties-count">0</span> properties that match your
+        criteria
       </p>
     </header>
 
     <!-- Search Filters -->
     <section class="container mx-auto px-4 mb-8">
+      <!-- Full-width Search Bar -->
+      <div class="mb-4">
+        <input
+          id="filter-search"
+          type="text"
+          placeholder="Search properties..."
+          class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <!-- Filter Box -->
       <div
         class="bg-white p-6 rounded-xl shadow-sm flex flex-wrap gap-4 items-end"
       >
@@ -93,43 +105,51 @@
           </select>
         </div>
 
-        <div class="flex flex-col w-24">
+        <!-- Price Range -->
+        <div class="flex flex-col w-full sm:w-[220px]">
           <label class="text-sm font-medium text-gray-700 mb-1"
-            >Price Range</label
+            >Price Range (EGP)</label
           >
           <div class="flex gap-2">
             <input
-              type="text"
+              id="filter-min-price"
+              type="number"
               placeholder="Min"
-              class="border border-gray-300 rounded-md px-2 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
-              type="text"
+              id="filter-max-price"
+              type="number"
               placeholder="Max"
-              class="border border-gray-300 rounded-md px-2 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
 
-        <div class="flex flex-col w-24">
+        <!-- Area Range -->
+        <div class="flex flex-col w-full sm:w-[220px]">
           <label class="text-sm font-medium text-gray-700 mb-1"
-            >Area (m²)</label
+            >Area Range (m²)</label
           >
           <div class="flex gap-2">
             <input
-              type="text"
+              id="filter-min-area"
+              type="number"
               placeholder="Min"
-              class="border border-gray-300 rounded-md px-2 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
-              type="text"
+              id="filter-max-area"
+              type="number"
               placeholder="Max"
-              class="border border-gray-300 rounded-md px-2 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
 
+        <!-- Clear Button -->
         <button
+          onclick="clearFilters()"
           class="ml-auto bg-gray-100 hover:bg-gray-200 text-sm text-gray-700 rounded-md px-4 py-2 mt-2 sm:mt-6"
         >
           ✕ Clear Filters
@@ -233,7 +253,9 @@
 
           if (result.succeeded && result.data) {
             allProperties = result.data;
-            console.log(allProperties.length);
+
+            document.getElementById("properties-count").textContent =
+              allProperties.length;
 
             // ✅ ONLY populate on initial load
             if (!filters.type && !filters.location && !filters.status) {
@@ -276,15 +298,18 @@
       }
 
       function applyFilters() {
-        const type = document.getElementById("filter-type").value;
-        const location = document.getElementById("filter-location").value;
-        const status = document.getElementById("filter-status").value;
+        const filters = {
+          type: document.getElementById("filter-type").value,
+          location: document.getElementById("filter-location").value,
+          status: document.getElementById("filter-status").value,
+          MinPrice: document.getElementById("filter-min-price").value,
+          MaxPrice: document.getElementById("filter-max-price").value,
+          MinArea: document.getElementById("filter-min-area").value,
+          MaxArea: document.getElementById("filter-max-area").value,
+          Search: document.getElementById("filter-search").value,
+        };
 
-        fetchProperties({
-          type,
-          location,
-          status,
-        });
+        fetchProperties(filters);
       }
 
       function renderProperties(properties) {
@@ -331,14 +356,37 @@
         });
       }
 
-      // Attach change listeners
       document.addEventListener("DOMContentLoaded", () => {
-        ["filter-type", "filter-location", "filter-status"].forEach((id) => {
+        [
+          "filter-type",
+          "filter-location",
+          "filter-status",
+          "filter-min-price",
+          "filter-max-price",
+          "filter-min-area",
+          "filter-max-area",
+          "filter-search",
+        ].forEach((id) => {
           document.getElementById(id).addEventListener("change", applyFilters);
+          document.getElementById(id).addEventListener("keyup", applyFilters);
         });
 
         fetchProperties(); // Initial load
       });
+
+      function clearFilters() {
+        [
+          "filter-type",
+          "filter-location",
+          "filter-status",
+          "filter-min-price",
+          "filter-max-price",
+          "filter-min-area",
+          "filter-max-area",
+          "filter-search",
+        ].forEach((id) => (document.getElementById(id).value = ""));
+        fetchProperties(); // Reset listing
+      }
     </script>
   </body>
 </html>
