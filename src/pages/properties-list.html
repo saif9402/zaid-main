@@ -234,7 +234,12 @@
           if (result.succeeded && result.data) {
             allProperties = result.data;
             console.log(allProperties.length);
-            populateDropdowns(result.data);
+
+            // ✅ ONLY populate on initial load
+            if (!filters.type && !filters.location && !filters.status) {
+              populateDropdowns(result.data);
+            }
+
             renderProperties(result.data);
           } else {
             console.error("Failed to fetch properties");
