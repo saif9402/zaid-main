@@ -321,6 +321,7 @@
           card.className = "bg-white shadow-lg rounded-lg overflow-hidden";
 
           card.innerHTML = `
+          <a href="property-details.html?id=${property.id}" >
         <img
           src="${
             property.mainImage?.imageURL ||
@@ -346,6 +347,7 @@
           <div class="mt-2 text-sm text-gray-600">
             Area: ${property.area} m²
           </div>
+          </a>
           <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
             Contact Agent
           </button>
