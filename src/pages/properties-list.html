@@ -233,6 +233,7 @@
 
           if (result.succeeded && result.data) {
             allProperties = result.data;
+            console.log(allProperties.length);
             populateDropdowns(result.data);
             renderProperties(result.data);
           } else {
