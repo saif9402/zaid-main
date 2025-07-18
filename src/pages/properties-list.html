@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hurghada Estates</title>
+    <title>عقارات الغردقة</title>
     <link href="../output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -19,38 +19,34 @@
         <div class="flex items-center font-bold text-lg text-gray-900">
           <img
             src="../img/header.png"
-            alt="Hurghada Estates Logo"
+            alt="شعار عقارات الغردقة"
             class="h-6 w-auto mr-2"
           />
-          Hurghada Estates
+          عقارات الغردقة
         </div>
-
-        <!-- Add this button inside the navbar div, before the links -->
         <button class="md:hidden text-gray-700" id="menu-btn">
           <i class="fas fa-bars fa-lg"></i>
         </button>
-
-        <!-- Wrap nav links in a div and hide on small screens -->
         <div
           id="menu"
           class="hidden md:flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 mt-4 md:mt-0"
         >
-          <a href="../index.html" class="hover:text-blue-700">Home</a>
+          <a href="../index.html" class="hover:text-blue-700">الرئيسية</a>
           <a href="properties-list.html" class="text-blue-700 font-semibold"
-            >Properties</a
+            >العقارات</a
           >
-          <a href="#" class="hover:text-blue-700">About</a>
-          <a href="#" class="hover:text-blue-700">Contact</a>
+          <a href="#" class="hover:text-blue-700">من نحن</a>
+          <a href="#" class="hover:text-blue-700">اتصل بنا</a>
         </div>
       </div>
     </nav>
 
     <!-- Header -->
     <header class="py-10 px-4 mt-10 text-center">
-      <h1 class="text-3xl font-bold mb-2">Properties in Hurghada</h1>
+      <h1 class="text-3xl font-bold mb-2">عقارات في الغردقة</h1>
       <p class="text-gray-600">
-        Discover <span id="properties-count">0</span> properties that match your
-        criteria
+        اكتشف <span id="properties-count">0</span> من العقارات التي تطابق
+        معاييرك
       </p>
     </header>
 
@@ -61,7 +57,7 @@
         <input
           id="filter-search"
           type="text"
-          placeholder="Search properties..."
+          placeholder="بحث عن العقارات"
           class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
@@ -72,55 +68,55 @@
       >
         <!-- Type -->
         <div class="flex flex-col w-full sm:w-[160px]">
-          <label class="text-sm font-medium text-gray-700 mb-1">Type</label>
+          <label class="text-sm font-medium text-gray-700 mb-1">النوع</label>
           <select
             id="filter-type"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">All Types</option>
+            <option value="">كل الانواع</option>
           </select>
         </div>
 
         <!-- Location -->
         <div class="flex flex-col w-full sm:w-[160px]">
-          <label class="text-sm font-medium text-gray-700 mb-1">Location</label>
+          <label class="text-sm font-medium text-gray-700 mb-1">المكان</label>
           <select
             id="filter-location"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">All Locations</option>
+            <option value="">كل الاماكن</option>
           </select>
         </div>
 
         <!-- Sale/Rent -->
         <div class="flex flex-col w-full sm:w-[160px]">
           <label class="text-sm font-medium text-gray-700 mb-1"
-            >Sale/Rent</label
+            >بيع/إيجار</label
           >
           <select
             id="filter-status"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">All</option>
+            <option value="">الكل</option>
           </select>
         </div>
 
         <!-- Price Range -->
         <div class="flex flex-col w-full sm:w-[220px]">
           <label class="text-sm font-medium text-gray-700 mb-1"
-            >Price Range (EGP)</label
+            >تحديد السعر (جنيه مصري)</label
           >
           <div class="flex gap-2">
             <input
               id="filter-min-price"
               type="number"
-              placeholder="Min"
+              placeholder="من"
               class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               id="filter-max-price"
               type="number"
-              placeholder="Max"
+              placeholder="إلي"
               class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -129,19 +125,19 @@
         <!-- Area Range -->
         <div class="flex flex-col w-full sm:w-[220px]">
           <label class="text-sm font-medium text-gray-700 mb-1"
-            >Area Range (m²)</label
+            >تحديد المساحة (²م)</label
           >
           <div class="flex gap-2">
             <input
               id="filter-min-area"
               type="number"
-              placeholder="Min"
+              placeholder="من"
               class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               id="filter-max-area"
               type="number"
-              placeholder="Max"
+              placeholder="الي"
               class="border border-gray-300 rounded-md px-3 py-2 w-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -152,7 +148,7 @@
           onclick="clearFilters()"
           class="ml-auto bg-gray-100 hover:bg-gray-200 text-sm text-gray-700 rounded-md px-4 py-2 mt-2 sm:mt-6"
         >
-          ✕ Clear Filters
+          ✕ مسح
         </button>
       </div>
     </section>
@@ -170,16 +166,15 @@
       <div
         class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4"
       >
-        <!-- Logo & Description -->
         <div>
           <div class="flex items-center mb-2">
-            <img src="../img/footer.png" alt="Logo" class="h-6 w-auto mr-2" />
-            <h4 class="text-white font-bold text-base">Hurghada Estates</h4>
+            <img src="img/footer.png" alt="الشعار" class="h-6 w-auto mr-2" />
+            <h4 class="text-white font-bold text-base">عقارات الغردقة</h4>
           </div>
           <p class="text-sm">
-            Your trusted partner in finding the perfect property in Hurghada. We
-            specialize in luxury villas, modern apartments, and prime land
-            investments along the Red Sea coast.
+            شريكك الموثوق للعثور على العقار المثالي في الغردقة. نحن متخصصون في
+            الفلل الفاخرة، الشقق الحديثة، واستثمارات الأراضي المتميزة على ساحل
+            البحر الأحمر.
           </p>
           <div class="flex space-x-4 mt-4 text-white text-lg">
             <a href="#" class="hover:text-blue-400"
@@ -194,45 +189,48 @@
           </div>
         </div>
 
-        <!-- Contact Info -->
         <div>
-          <h4 class="text-white font-bold mb-2">Contact Info</h4>
+          <h4 class="text-white font-bold mb-2">معلومات الاتصال</h4>
           <ul class="text-sm space-y-2">
             <li class="flex items-center">
-              <img src="../img/contact.png" alt="Phone" class="h-4 w-4 mr-2" />
-              +20 65 123 4567
-            </li>
-            <li class="flex items-center">
-              <img src="../img/mail.png" alt="Email" class="h-4 w-4 mr-2" />
-              info@hurghadaestates.com
+              <img src="img/contact.png" alt="هاتف" class="h-4 w-4 mr-2" />+20
+              65 123 4567
             </li>
             <li class="flex items-center">
               <img
-                src="../img/location2.png"
-                alt="Location"
+                src="img/mail.png"
+                alt="بريد"
                 class="h-4 w-4 mr-2"
-              />
-              Hurghada, Red Sea, Egypt
+              />info@hurghadaestates.com
+            </li>
+            <li class="flex items-center">
+              <img
+                src="img/location2.png"
+                alt="موقع"
+                class="h-4 w-4 mr-2"
+              />الغردقة، البحر الأحمر، مصر
             </li>
           </ul>
         </div>
 
-        <!-- Quick Links -->
         <div>
-          <h4 class="text-white font-bold mb-2">Quick Links</h4>
+          <h4 class="text-white font-bold mb-2">روابط سريعة</h4>
           <ul class="text-sm space-y-2">
-            <li><a href="#" class="hover:underline">Home</a></li>
-            <li><a href="#" class="hover:underline">Properties</a></li>
-            <li><a href="#" class="hover:underline">About Us</a></li>
-            <li><a href="#" class="hover:underline">Contact</a></li>
+            <li><a href="index.html" class="hover:underline">الرئيسية</a></li>
+            <li>
+              <a href="pages/properties-list.html" class="hover:underline"
+                >العقارات</a
+              >
+            </li>
+            <li><a href="#" class="hover:underline">من نحن</a></li>
+            <li><a href="#" class="hover:underline">اتصل بنا</a></li>
           </ul>
         </div>
       </div>
-
       <div
         class="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400"
       >
-        © 2025 Hurghada Estates. All rights reserved.
+        © 2025 عقارات الغردقة. جميع الحقوق محفوظة.
       </div>
     </footer>
     <script>
@@ -341,16 +339,16 @@
             }</span>
           </div>
           <h2 class="text-lg font-semibold">${property.name}</h2>
-          <p class="text-blue-600 font-bold text-lg">EGP ${property.price.toLocaleString()}</p>
+          <p class="text-blue-600 font-bold text-lg">${property.price.toLocaleString()} جنيه مصري</p>
           <p class="text-sm text-gray-500">
             <i class="fas fa-map-marker-alt text-red-500"></i>
             ${property.location}</p>
           <div class="mt-2 text-sm text-gray-600">
-            Area: ${property.area} m²
+            Area: ${property.area} ²م
           </div>
           </a>
           <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 ransition-transform transform hover:scale-105">
-            Contact Agent
+            تواصل معنا
           </button>
         </div>
       `;
