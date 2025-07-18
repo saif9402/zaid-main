@@ -318,7 +318,8 @@
 
         properties.forEach((property) => {
           const card = document.createElement("div");
-          card.className = "bg-white shadow-lg rounded-lg overflow-hidden";
+          card.className =
+            "bg-white shadow-lg rounded-lg overflow-hidden ransition-transform transform hover:scale-105";
 
           card.innerHTML = `
           <a href="property-details.html?id=${property.id}" >
@@ -348,7 +349,7 @@
             Area: ${property.area} m²
           </div>
           </a>
-          <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 ransition-transform transform hover:scale-105">
             Contact Agent
           </button>
         </div>
