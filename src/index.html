@@ -85,7 +85,10 @@
             alt="Properties Icon"
             class="mx-auto h-8 mb-2"
           />
-          <div class="text-2xl font-bold" data-target="500">0</div>
+          <div class="text-2xl font-bold">
+            <span class="counter" data-target="500">0</span>+
+          </div>
+
           <p>Properties Listed</p>
         </div>
         <div>
@@ -94,7 +97,10 @@
             alt="Clients Icon"
             class="mx-auto h-8 mb-2"
           />
-          <div class="text-2xl font-bold" data-target="1000">0</div>
+          <div class="text-2xl font-bold">
+            <span class="counter" data-target="1000">0</span>+
+          </div>
+
           <p>Happy Clients</p>
         </div>
         <div>
@@ -103,7 +109,10 @@
             alt="Experience Icon"
             class="mx-auto h-8 mb-2"
           />
-          <div class="text-2xl font-bold" data-target="8">0</div>
+          <div class="text-2xl font-bold">
+            <span class="counter" data-target="8">0</span>+
+          </div>
+
           <p>Years Experience</p>
         </div>
         <div>
@@ -112,7 +121,11 @@
             alt="Rating Icon"
             class="mx-auto h-8 mb-2"
           />
-          <div class="text-2xl font-bold" data-target="4.7">0</div>
+          <div class="text-2xl font-bold">
+            <span class="counter" data-target="500" data-decimal="true">0</span
+            >+
+          </div>
+
           <p>Client Rating</p>
         </div>
       </div>
@@ -270,7 +283,7 @@
     </footer>
     <script>
       function animateCounter(element, target, isDecimal = false) {
-        const duration = 2000;
+        const duration = 5000;
         const frameRate = 30;
         const totalFrames = duration / (1000 / frameRate);
         let frame = 0;
