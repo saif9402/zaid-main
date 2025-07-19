@@ -271,7 +271,7 @@
             } else {
               const errorText = await response.json();
               console.log(errorText);
-              showToast("Error: " + errorText.errors, "error");
+              showToast("Error: " + errorText.errors.text(), "error");
             }
           } catch (error) {
             showToast("Failed to send message: " + error.message, "error");
