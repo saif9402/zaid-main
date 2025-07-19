@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Hurghada Estates</title>
+    <title>اتصل بنا - عقارات الغردقة</title>
     <link href="../output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -12,41 +12,57 @@
   </head>
   <body class="font-sans text-gray-700">
     <!-- Header -->
-    <header class="bg-white shadow-sm">
+    <nav class="bg-white shadow-md fixed top-0 w-full z-50">
       <div
-        class="container mx-auto px-6 py-4 flex justify-between items-center"
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
       >
-        <h1 class="text-xl font-bold text-blue-700">Hurghada Estates</h1>
-        <nav class="space-x-6">
-          <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600">Properties</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
-          <a
-            href="#"
-            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            >Contact</a
+        <div class="flex items-center font-bold text-lg text-gray-900">
+          <img
+            src="../img/header.png"
+            alt="شعار عقارات الغردقة"
+            class="h-6 w-auto mr-2"
+          />
+          عقارات الغردقة
+        </div>
+        <button
+          title="زر القائمة"
+          class="md:hidden text-gray-700"
+          id="menu-btn"
+        >
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+        <div
+          id="menu"
+          class="absolute top-16 left-0 w-full bg-white flex flex-col space-y-4 p-4 transform transition-all duration-500 ease-in-out opacity-0 -translate-y-10 md:pointer-events-auto pointer-events-none md:static md:w-auto md:flex md:flex-row md:items-center md:space-y-0 md:space-x-6 md:opacity-100 md:translate-y-0 md:bg-transparent md:p-0 md:justify-end z-40"
+        >
+          <a href="../index.html" class="hover:text-blue-700">الرئيسية</a>
+          <a href="properties-list.html" class="hover:text-blue-700"
+            >العقارات</a
           >
-        </nav>
+          <a href="about.html" class="hover:text-blue-700">من نحن</a>
+          <a
+            href="contact.html"
+            class="text-blue-700 font-semibold transition-colors duration-200 hover:text-blue-800"
+            >اتصل بنا</a
+          >
+        </div>
       </div>
-    </header>
+    </nav>
 
-    <div id="toast" class="fixed top-6 right-6 z-50 hidden">
+    <div id="toast" class="fixed top-6 left-6 z-50 hidden">
       <div
         id="toast-content"
         class="flex items-center p-4 rounded-lg shadow-lg text-white text-sm font-medium transition-all duration-300"
-      >
-        <!-- Icon and Message will be injected -->
-      </div>
+      ></div>
     </div>
 
     <!-- Contact Section -->
     <section class="py-16">
       <div class="container mx-auto px-6">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-2">Contact Us</h2>
+          <h2 class="text-3xl font-bold mb-2">اتصل بنا</h2>
           <p class="text-gray-600">
-            Ready to find your dream property? Get in touch with our expert team
-            today.
+            هل تبحث عن عقار أحلامك؟ تواصل مع فريقنا المتخصص اليوم.
           </p>
         </div>
 
@@ -55,35 +71,36 @@
           <div class="space-y-6">
             <div>
               <h3 class="font-semibold text-lg flex">
-                <img src="../img/contact_phone.png" alt="" /> Phone
+                <img src="../img/contact_phone.png" alt="" class="ml-2" />
+                الهاتف
               </h3>
               <p>+20 65 123 4567</p>
               <p>+20 65 123 4568</p>
             </div>
             <div>
               <h3 class="font-semibold text-lg flex">
-                <img src="../img/contact_email.png" alt="" /> Email
+                <img src="../img/contact_email.png" alt="" class="ml-2" />
+                البريد الإلكتروني
               </h3>
               <p>info@hurghadaestates.com</p>
               <p>sales@hurghadaestates.com</p>
             </div>
             <div>
               <h3 class="font-semibold text-lg flex">
-                <img src="../img/contact_loc.png" alt="" /> Address
+                <img src="../img/contact_loc.png" alt="" class="ml-2" /> العنوان
               </h3>
-              <p>
-                Marina District<br />Hurghada, Red Sea Governorate<br />Egypt
-              </p>
+              <p>حي المارينا<br />الغردقة، محافظة البحر الأحمر<br />مصر</p>
             </div>
             <div>
               <h3 class="font-semibold text-lg flex">
-                <img src="../img/contact_clock.png" alt="" /> Business Hours
+                <img src="../img/contact_clock.png" alt="" class="ml-2" /> ساعات
+                العمل
               </h3>
-              <p>Saturday - Thursday: 9:00 AM - 6:00 PM</p>
-              <p>Friday: 2:00 PM - 6:00 PM</p>
+              <p>السبت - الخميس: 9:00 ص - 6:00 م</p>
+              <p>الجمعة: 2:00 م - 6:00 م</p>
             </div>
             <div>
-              <h3 class="font-semibold text-lg">Our Location</h3>
+              <h3 class="font-semibold text-lg">موقعنا</h3>
               <iframe
                 src="https://www.google.com/maps?q=Hurghada&output=embed"
                 width="100%"
@@ -103,24 +120,24 @@
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >Full Name *</label
+                    >الاسم الكامل *</label
                   >
                   <input
+                    title="الاسم"
                     type="text"
                     name="senderName"
-                    placeholder="John Doe"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition placeholder:font-light placeholder:italic"
                     required
                   />
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >Email Address *</label
+                    >البريد الإلكتروني *</label
                   >
                   <input
+                    title="البريد الالكتروني"
                     type="email"
                     name="senderEmail"
-                    placeholder="you@example.com"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition placeholder:font-light placeholder:italic"
                     required
                   />
@@ -129,37 +146,37 @@
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >Phone Number</label
+                    >رقم الهاتف</label
                   >
                   <input
+                    title="الهاتف"
                     type="text"
                     name="phoneNumber"
-                    placeholder="+20 123 456 7890"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition placeholder:font-light placeholder:italic"
                   />
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-1"
-                    >Subject</label
+                    >الموضوع</label
                   >
                   <select
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition placeholder:font-light placeholder:italic"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
                   >
-                    <option>Select a subject</option>
-                    <option>Property Inquiry</option>
-                    <option>Schedule a Visit</option>
-                    <option>General Question</option>
+                    <option>اختر الموضوع</option>
+                    <option>استفسار عن عقار</option>
+                    <option>تحديد موعد زيارة</option>
+                    <option>سؤال عام</option>
                   </select>
                 </div>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1"
-                  >Message *</label
+                  >الرسالة *</label
                 >
                 <textarea
+                  title="الموضوع"
                   rows="5"
                   name="body"
-                  placeholder="How can we help you?"
                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none transition placeholder:font-light placeholder:italic resize-none"
                   required
                 ></textarea>
@@ -168,7 +185,7 @@
                 type="submit"
                 class="mt-4 inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200 shadow-md"
               >
-                <i class="fas fa-paper-plane"></i> Send Message
+                <i class="fas fa-paper-plane"></i> إرسال الرسالة
               </button>
             </form>
           </div>
@@ -176,50 +193,152 @@
       </div>
     </section>
 
-    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden">
+    <div id="toast" class="fixed top-6 left-6 z-50 hidden">
       <div
         id="toast-content"
         class="flex items-center p-4 rounded-lg shadow-lg text-white text-sm font-medium transition-all duration-300"
-      >
-        <!-- Icon and Message will be injected -->
-      </div>
+      ></div>
     </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-10">
-      <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4"
+      >
         <div>
-          <h3 class="font-bold text-white text-xl mb-2">Hurghada Estates</h3>
-          <p>
-            Your trusted partner in finding the perfect property in Hurghada.
+          <div class="flex items-center mb-2">
+            <img src="../img/footer.png" alt="الشعار" class="h-6 w-auto ml-2" />
+            <h4 class="text-white font-bold text-base">عقارات الغردقة</h4>
+          </div>
+          <p class="text-sm">
+            شريكك الموثوق للعثور على العقار المثالي في الغردقة. متخصصون في الفلل
+            الفاخرة، الشقق الحديثة، واستثمارات الأراضي المميزة.
           </p>
-          <div class="flex space-x-3 mt-4">
-            <a href="#" class="hover:text-white">🌐</a>
-            <a href="#" class="hover:text-white">📘</a>
-            <a href="#" class="hover:text-white">📸</a>
+          <div class="flex space-x-4 mt-4 text-white text-lg">
+            <a href="#" class="hover:text-blue-400"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-pink-400"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-blue-300"
+              ><i class="fab fa-twitter"></i
+            ></a>
           </div>
         </div>
+
         <div>
-          <h4 class="font-semibold mb-2">Contact Info</h4>
-          <p>+20 65 123 4567</p>
-          <p>info@hurghadaestates.com</p>
-          <p>Hurghada, Red Sea, Egypt</p>
+          <h4 class="text-white font-bold mb-2">معلومات الاتصال</h4>
+          <ul class="text-sm space-y-2">
+            <li class="flex items-center">
+              <img
+                src="../img/contact.png"
+                alt="هاتف"
+                class="h-4 w-4 ml-2"
+              />+20 65 123 4567
+            </li>
+            <li class="flex items-center">
+              <img
+                src="../img/mail.png"
+                alt="بريد"
+                class="h-4 w-4 ml-2"
+              />info@hurghadaestates.com
+            </li>
+            <li class="flex items-center">
+              <img
+                src="../img/location2.png"
+                alt="موقع"
+                class="h-4 w-4 ml-2"
+              />الغردقة، البحر الأحمر، مصر
+            </li>
+          </ul>
         </div>
+
         <div>
-          <h4 class="font-semibold mb-2">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-white">Home</a></li>
-            <li><a href="#" class="hover:text-white">Properties</a></li>
-            <li><a href="#" class="hover:text-white">About Us</a></li>
-            <li><a href="#" class="hover:text-white">Contact</a></li>
+          <h4 class="text-white font-bold mb-2">روابط سريعة</h4>
+          <ul class="text-sm space-y-2">
+            <li>
+              <a href="../index.html" class="hover:underline">الرئيسية</a>
+            </li>
+            <li>
+              <a href="properties-list.html" class="hover:underline"
+                >العقارات</a
+              >
+            </li>
+            <li><a href="about.html" class="hover:underline">من نحن</a></li>
+            <li><a href="contact.html" class="hover:underline">اتصل بنا</a></li>
           </ul>
         </div>
       </div>
-      <div class="text-center text-sm mt-8 text-gray-500">
-        &copy; 2025 Hurghada Estates. All rights reserved.
+      <div
+        class="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400"
+      >
+        © 2025 عقارات الغردقة. جميع الحقوق محفوظة.
       </div>
     </footer>
     <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menu.classList.contains("menu-open");
+
+        if (isOpen) {
+          // Close menu
+          menu.classList.remove("menu-open");
+          menu.classList.add(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          menu.classList.remove(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        } else {
+          // Open menu with animation
+          menu.classList.add("menu-open");
+          menu.classList.remove(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          // Force reflow so transition triggers
+          void menu.offsetWidth;
+          menu.classList.add(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        const menuIsOpen = menu.classList.contains("menu-open");
+        const isSmallScreen = window.innerWidth < 768;
+
+        if (
+          menuIsOpen &&
+          isSmallScreen &&
+          !menu.contains(e.target) &&
+          !menuBtn.contains(e.target)
+        ) {
+          // Close menu
+          menu.classList.remove("menu-open");
+          menu.classList.add(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          menu.classList.remove(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        }
+      });
+
       const showToast = (message, type = "success") => {
         const toast = document.getElementById("toast");
         const toastContent = document.getElementById("toast-content");
@@ -269,9 +388,7 @@
               showToast("Your message has been sent successfully!", "success");
               form.reset();
             } else {
-              const errorText = await response.json();
-              console.log(errorText);
-              showToast("Error: " + errorText.errors.text(), "error");
+              showToast("Error: message not sent try agin", "error");
             }
           } catch (error) {
             showToast("Failed to send message: " + error.message, "error");

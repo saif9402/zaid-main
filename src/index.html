@@ -53,20 +53,21 @@
       <img
         src="img/background.png"
         alt="خلفية"
-        class="absolute top-0 left-0 w-full h-full object-cover -z-10 border-4 border-red-500"
+        class="absolute top-0 left-0 w-full h-full object-cover -z-10"
       />
       <div
-        class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center text-center text-white z-10"
+        class="absolute inset-0 bg-opacity-30 flex flex-col items-center justify-center text-center text-white z-10"
       >
         <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold">
           ابحث عن عقارك الحلم في <span class="text-yellow-400">الغردقة</span>
         </h1>
         <p class="mt-4">اكتشف الرفاهية</p>
-        <button
+        <a
+          href="pages/properties-list.html"
           class="w-full sm:w-auto mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-transform transform hover:scale-105"
         >
           تصفح العقارات
-        </button>
+        </a>
       </div>
     </header>
 
@@ -131,12 +132,13 @@
         id="property-list"
         class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4"
       ></div>
-      <div class="mt-10 text-center">
-        <button
-          class="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-transform transform hover:scale-105"
+      <div class="mt-10 text-center flex items-center justify-center">
+        <a
+          href="pages/properties-list.html"
+          class="w-full sm:w-auto mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-transform transform hover:scale-105"
         >
           عرض جميع العقارات
-        </button>
+        </a>
       </div>
     </section>
 
@@ -248,8 +250,12 @@
                 >العقارات</a
               >
             </li>
-            <li><a href="#" class="hover:underline">من نحن</a></li>
-            <li><a href="#" class="hover:underline">اتصل بنا</a></li>
+            <li>
+              <a href="pages/about.html" class="hover:underline">من نحن</a>
+            </li>
+            <li>
+              <a href="pages/contact.html" class="hover:underline">اتصل بنا</a>
+            </li>
           </ul>
         </div>
       </div>
