@@ -33,7 +33,7 @@
         </button>
         <div
           id="menu"
-          class="absolute top-16 left-0 w-full bg-white flex flex-col space-y-4 p-4 transform transition-all duration-500 ease-in-out opacity-0 -translate-y-10 md:pointer-events-auto pointer-events-none md:static md:w-auto md:flex md:flex-row md:items-center md:space-y-0 md:space-x-6 md:opacity-100 md:translate-y-0 md:bg-transparent md:p-0 md:justify-end z-40"
+          class="absolute top-full right-0 w-full bg-white flex flex-col space-y-4 p-4 transform transition-all duration-300 ease-in-out opacity-0 -translate-y-5 md:pointer-events-auto pointer-events-none md:static md:w-auto md:flex md:flex-row md:items-center md:space-y-0 md:space-x-6 md:opacity-100 md:translate-y-0 md:bg-transparent md:p-0 md:justify-end z-40"
         >
           <a href="../index.html" class="hover:text-blue-700">الرئيسية</a>
           <a href="properties-list.html" class="hover:text-blue-700"
@@ -51,74 +51,72 @@
         <img
           src=""
           alt="Main"
-          class="w-full h-96 object-cover rounded-lg mt-4"
+          class="w-full h-48 sm:h-64 md:h-96 object-cover rounded-lg mt-4"
         />
 
-        <div class="flex space-x-4 overflow-x-auto mt-4">
+        <div class="flex space-x-4 rtl:space-x-reverse overflow-x-auto mt-4">
           <img src="" alt="Image" class="h-28 w-48 object-cover rounded-lg" />
         </div>
 
-        <div class="flex justify-center mt-6 text-blue-700">
-          <div class="flex space-x-12 items-center">
-            <div class="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-blue-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 10h4v10H3V10zm14 0h4v10h-4V10zM10 3h4v7h-4V3zM10 14h4v6h-4v-6z"
-                />
-              </svg>
-              <span id="property-type"></span>
-            </div>
+        <div class="flex flex-wrap justify-center gap-6 mt-6 text-blue-700">
+          <div class="flex items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 10h4v10H3V10zm14 0h4v10h-4V10zM10 3h4v7h-4V3zM10 14h4v6h-4v-6z"
+              />
+            </svg>
+            <span id="property-type"></span>
+          </div>
 
-            <div class="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-blue-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 7h18M3 12h18M3 17h18"
-                />
-              </svg>
-              <span id="property-area"></span>
-            </div>
+          <div class="flex items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 7h18M3 12h18M3 17h18"
+              />
+            </svg>
+            <span id="property-area"></span>
+          </div>
 
-            <div class="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-blue-700"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"
-                />
-              </svg>
-              <span id="property-location"></span>
-            </div>
+          <div class="flex items-center space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"
+              />
+            </svg>
+            <span id="property-location"></span>
           </div>
         </div>
 
@@ -137,7 +135,7 @@
 
       <section class="bg-gray-100 p-6 rounded">
         <h3 class="text-lg font-semibold mb-4">الخصائص الأساسية</h3>
-        <div class="grid grid-cols-2 gap-4 text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
           <p>
             <strong>المدينة: </strong
             ><span id="property-location2">الغردقة</span>
