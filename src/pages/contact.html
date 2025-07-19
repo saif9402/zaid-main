@@ -167,6 +167,15 @@
       </div>
     </section>
 
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden">
+      <div
+        id="toast-content"
+        class="flex items-center p-4 rounded-lg shadow-lg text-white text-sm font-medium transition-all duration-300"
+      >
+        <!-- Icon and Message will be injected -->
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-10">
       <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
@@ -202,11 +211,33 @@
       </div>
     </footer>
     <script>
+      const showToast = (message, type = "success") => {
+        const toast = document.getElementById("toast");
+        const toastContent = document.getElementById("toast-content");
+
+        toastContent.innerHTML = `
+      <i class="fas ${
+        type === "success" ? "fa-check-circle" : "fa-exclamation-circle"
+      } mr-2 text-lg"></i>
+      <span>${message}</span>
+    `;
+
+        toastContent.className = `flex items-center p-4 rounded-lg shadow-lg text-white text-sm font-medium transition-all duration-300 ${
+          type === "success" ? "bg-green-600" : "bg-red-600"
+        }`;
+
+        toast.classList.remove("hidden");
+        toast.classList.add("opacity-100");
+
+        setTimeout(() => {
+          toast.classList.add("hidden");
+        }, 4000);
+      };
+
       document
         .getElementById("contactForm")
         .addEventListener("submit", async function (e) {
           e.preventDefault();
-
           const form = e.target;
 
           const payload = {
@@ -226,14 +257,14 @@
             });
 
             if (response.ok) {
-              alert("Your message has been sent successfully!");
+              showToast("Your message has been sent successfully!", "success");
               form.reset();
             } else {
               const errorText = await response.text();
-              alert("Something went wrong: " + errorText);
+              showToast("Error: " + errorText, "error");
             }
           } catch (error) {
-            alert("Failed to send message: " + error.message);
+            showToast("Failed to send message: " + error.message, "error");
           }
         });
     </script>
