@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>من نحن - عقارات الغردقة</title>
+    <link href="../output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="font-sans text-gray-700">
+    <!-- شريط التنقل -->
+    <nav class="bg-white shadow-md fixed top-0 w-full z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <div class="flex items-center font-bold text-lg text-gray-900">
+          <img
+            src="../img/header.png"
+            alt="شعار عقارات الغردقة"
+            class="h-6 w-auto mr-2"
+          />
+          عقارات الغردقة
+        </div>
+        <button
+          title="زر القائمة"
+          class="md:hidden text-gray-700"
+          id="menu-btn"
+        >
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+        <div
+          id="menu"
+          class="absolute top-16 left-0 w-full bg-white flex flex-col space-y-4 p-4 transform transition-all duration-500 ease-in-out opacity-0 -translate-y-10 md:pointer-events-auto pointer-events-none md:static md:w-auto md:flex md:flex-row md:items-center md:space-y-0 md:space-x-6 md:opacity-100 md:translate-y-0 md:bg-transparent md:p-0 md:justify-end z-40"
+        >
+          <a href="../index.html" class="hover:text-blue-700">الرئيسية</a>
+          <a href="properties-list.html" class="hover:text-blue-700"
+            >العقارات</a
+          >
+          <a href="#" class="text-blue-700 font-semibold">من نحن</a>
+          <a href="#" class="hover:text-blue-700">اتصل بنا</a>
+        </div>
+      </div>
+    </nav>
+    <!-- قسم المقدمة -->
+    <section class="text-center py-10 mt-10">
+      <h1 class="text-4xl font-bold mb-2">من نحن</h1>
+      <p class="text-gray-600">
+        شريكك الموثوق للعثور على العقار المثالي في الغردقة. لأكثر من 15 عامًا،
+        نساعد العملاء في تحقيق حلمهم بامتلاك منزل على ساحل البحر الأحمر.
+      </p>
+    </section>
+
+    <!-- المهمة والرؤية -->
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 py-10 max-w-6xl mx-auto"
+    >
+      <div class="bg-white shadow p-6 rounded-lg">
+        <h2 class="font-bold text-lg mb-2 flex items-center">
+          <img src="../img/about_story.png" alt="" class="ml-2" />مهمتنا
+        </h2>
+        <p>
+          تقديم خدمات عقارية استثنائية تفوق توقعات عملائنا. نلتزم بمساعدتك في
+          العثور على منزل مثالي يناسب أسلوب حياتك وأهدافك الاستثمارية في
+          الغردقة.
+        </p>
+      </div>
+      <div class="bg-white shadow p-6 rounded-lg">
+        <h2 class="font-bold text-lg mb-2 flex items-center">
+          <img src="../img/about_pro.png" alt="" class="ml-2" />رؤيتنا
+        </h2>
+        <p>
+          أن نكون الوكالة العقارية الرائدة في الغردقة، معترف بها بالنزاهة
+          والخبرة والتفاني في رضا العملاء. نسعى لجعل الاستثمار العقاري متاحًا
+          ومجزيًا للجميع.
+        </p>
+      </div>
+    </section>
+
+    <!-- لماذا نحن -->
+    <section class="bg-gray-50 py-10 px-6 text-center">
+      <h2 class="text-2xl font-bold mb-6">لماذا تختارنا؟</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="text-center">
+          <img src="../img/about_prop.png" alt="" class="mx-auto mb-2" />
+          <h3 class="font-semibold mb-1">عقارات فاخرة</h3>
+          <p class="text-gray-600">
+            نقدم أفضل الفلل، الشقق، والأراضي في أبرز مواقع الغردقة.
+          </p>
+        </div>
+        <div class="text-center">
+          <img src="../img/about_clients.png" alt="" class="mx-auto mb-2" />
+          <h3 class="font-semibold mb-1">فريق خبراء</h3>
+          <p class="text-gray-600">
+            فريقنا المحترف يقدم خدمة شخصية وإرشادًا خبيرًا في كل خطوة.
+          </p>
+        </div>
+        <div class="text-center">
+          <img src="../img/about_achiv.png" alt="" class="mx-auto mb-2" />
+          <h3 class="font-semibold mb-1">سجل حافل</h3>
+          <p class="text-gray-600">
+            أكثر من 15 عامًا من الخبرة و1000+ عميل راضٍ يثبتون جدارتنا.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- قصتنا -->
+    <section class="py-10 px-6 max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold mb-4">قصتنا</h2>
+      <p class="text-gray-700 mb-4">
+        تأسست شركة عقارات الغردقة عام 2010 كعمل عائلي صغير بهدف بسيط: مساعدة
+        الناس على العثور على منزل أحلامهم في واحدة من أجمل مدن مصر الساحلية.
+      </p>
+      <p class="text-gray-700 mb-4">
+        شهدنا تطور الغردقة من قرية صيد هادئة إلى وجهة منتجعات عالمية. خلال هذه
+        الرحلة، حافظنا على التزامنا بالخدمة الشخصية والنزاهة والمعرفة المحلية
+        العميقة.
+      </p>
+      <p class="text-gray-700">
+        اليوم، نفتخر بمساعدتنا لأكثر من 1000 أسرة ومستثمر في العثور على عقارات
+        أحلامهم بالغردقة، من الفلل الفاخرة إلى الشقق الحديثة والأراضي
+        الاستثمارية.
+      </p>
+    </section>
+
+    <!-- الموقع -->
+    <section class="bg-gray-50 py-10 px-6 max-w-6xl mx-auto">
+      <h2 class="flex text-2xl font-bold mb-4">
+        <img src="../img/about_loc.png" alt="" class="ml-2" /> موقعنا
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="mb-2">
+            يقع مكتبنا في قلب الغردقة، ما يسهل على العملاء زيارتنا ويمكن فريقنا
+            من معرفة جميع الأحياء والمشروعات المميزة في المنطقة.
+          </p>
+          <p>
+            <strong>العنوان:</strong> منطقة المارينا، الغردقة، محافظة البحر
+            الأحمر، مصر
+          </p>
+          <p><strong>الهاتف:</strong> +20 65 123 4567</p>
+          <p><strong>البريد الإلكتروني:</strong> info@hurghadaestates.com</p>
+          <p>
+            <strong>ساعات العمل:</strong> السبت - الخميس: 9:00 صباحًا - 6:00
+            مساءً
+          </p>
+        </div>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7095.423718018526!2d33.83621701924493!3d27.228194958494676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145287ad544f9e3d%3A0x93a963ebf4215a33!2sHurghada%20Marina!5e0!3m2!1sen!2seg!4v1752939832474!5m2!1sen!2seg"
+            width="500"
+            height="250"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-gray-900 text-gray-300 py-10">
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4"
+      >
+        <div>
+          <div class="flex items-center mb-2">
+            <img src="../img/footer.png" alt="الشعار" class="h-6 w-auto ml-2" />
+            <h4 class="text-white font-bold text-base">عقارات الغردقة</h4>
+          </div>
+          <p class="text-sm">
+            شريكك الموثوق للعثور على العقار المثالي في الغردقة. متخصصون في الفلل
+            الفاخرة، الشقق الحديثة، واستثمارات الأراضي المميزة.
+          </p>
+          <div class="flex space-x-reverse space-x-4 mt-4 text-white text-lg">
+            <a href="#" class="hover:text-blue-400"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-pink-400"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-blue-300"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-2">معلومات الاتصال</h4>
+          <ul class="text-sm space-y-2">
+            <li class="flex items-center">
+              <img
+                src="../img/contact.png"
+                alt="هاتف"
+                class="h-4 w-4 ml-2"
+              />+20 65 123 4567
+            </li>
+            <li class="flex items-center">
+              <img
+                src="../img/mail.png"
+                alt="بريد"
+                class="h-4 w-4 ml-2"
+              />info@hurghadaestates.com
+            </li>
+            <li class="flex items-center">
+              <img
+                src="../img/location2.png"
+                alt="موقع"
+                class="h-4 w-4 ml-2"
+              />الغردقة، البحر الأحمر، مصر
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-2">روابط سريعة</h4>
+          <ul class="text-sm space-y-2">
+            <li><a href="index.html" class="hover:underline">الرئيسية</a></li>
+            <li>
+              <a href="pages/properties-list.html" class="hover:underline"
+                >العقارات</a
+              >
+            </li>
+            <li><a href="#" class="hover:underline">من نحن</a></li>
+            <li><a href="#" class="hover:underline">اتصل بنا</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400"
+      >
+        © 2025 عقارات الغردقة. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <!-- القائمة الجانبية -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menu.classList.contains("menu-open");
+
+        if (isOpen) {
+          // Close menu
+          menu.classList.remove("menu-open");
+          menu.classList.add(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          menu.classList.remove(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        } else {
+          // Open menu with animation
+          menu.classList.add("menu-open");
+          menu.classList.remove(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          // Force reflow so transition triggers
+          void menu.offsetWidth;
+          menu.classList.add(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        const menuIsOpen = menu.classList.contains("menu-open");
+        const isSmallScreen = window.innerWidth < 768;
+
+        if (
+          menuIsOpen &&
+          isSmallScreen &&
+          !menu.contains(e.target) &&
+          !menuBtn.contains(e.target)
+        ) {
+          // Close menu
+          menu.classList.remove("menu-open");
+          menu.classList.add(
+            "opacity-0",
+            "-translate-y-10",
+            "pointer-events-none"
+          );
+          menu.classList.remove(
+            "opacity-100",
+            "translate-y-0",
+            "pointer-events-auto"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
