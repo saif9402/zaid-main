@@ -77,6 +77,7 @@
         <div class="flex flex-col w-full sm:w-[160px]">
           <label class="text-sm font-medium text-gray-700 mb-1">النوع</label>
           <select
+            title="نوع"
             id="filter-type"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -88,6 +89,7 @@
         <div class="flex flex-col w-full sm:w-[160px]">
           <label class="text-sm font-medium text-gray-700 mb-1">المكان</label>
           <select
+            title="المكان"
             id="filter-location"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -101,6 +103,7 @@
             >بيع/إيجار</label
           >
           <select
+            title="الحالة"
             id="filter-status"
             class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -162,7 +165,7 @@
 
     <!-- Property Cards -->
     <section
-      class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16"
+      class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-18 mb-16"
       id="properties-container"
     >
       <!-- Cards will be injected here -->
@@ -175,7 +178,7 @@
       >
         <div>
           <div class="flex items-center mb-2">
-            <img src="../img/footer.png" alt="الشعار" class="h-6 w-auto mr-2" />
+            <img src="../img/footer.png" alt="الشعار" class="h-6 w-auto ml-2" />
             <h4 class="text-white font-bold text-base">عقارات الغردقة</h4>
           </div>
           <p class="text-sm">
@@ -203,21 +206,21 @@
               <img
                 src="../img/contact.png"
                 alt="هاتف"
-                class="h-4 w-4 mr-2"
+                class="h-4 w-4 ml-2"
               />+20 65 123 4567
             </li>
             <li class="flex items-center">
               <img
                 src="../img/mail.png"
                 alt="بريد"
-                class="h-4 w-4 mr-2"
+                class="h-4 w-4 ml-2"
               />info@hurghadaestates.com
             </li>
             <li class="flex items-center">
               <img
                 src="../img/location2.png"
                 alt="موقع"
-                class="h-4 w-4 mr-2"
+                class="h-4 w-4 ml-2"
               />الغردقة، البحر الأحمر، مصر
             </li>
           </ul>
