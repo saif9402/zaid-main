@@ -54,7 +54,7 @@
           class="w-full h-48 sm:h-64 md:h-96 object-cover rounded-lg mt-4"
         />
 
-        <div class="flex gap-x-4 overflow-x-auto m-4">
+        <div id="thumbnail-gallery" class="flex gap-x-4 overflow-x-auto m-4">
           <img src="" alt="Image" class="h-28 w-48 object-cover rounded-lg" />
         </div>
 
@@ -159,20 +159,23 @@
     <!-- Image Modal with Prev/Next -->
     <div
       id="imageModal"
-      class="fixed inset-0 z-50 bg-white rounded-2xl shadow-2xl bg-opacity-80 flex items-center justify-center hidden"
+      class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
     >
       <button
         onclick="showPrevImage(event)"
-        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/40 bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
         title="التالي"
       >
         ‹
       </button>
 
-      <img id="modalImage" class="max-w-full max-h-full rounded shadow-lg" />
+      <img
+        id="modalImage"
+        class="max-w-full max-h-full rounded shadow-lg transition-all duration-300 transform opacity-0 scale-90"
+      />
       <button
         onclick="showNextImage(event)"
-        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/40 bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
         title="السابق"
       >
         ›
@@ -180,7 +183,7 @@
 
       <button
         onclick="closeModal()"
-        class="absolute top-4 right-4 text-white text-2xl"
+        class="absolute top-4 right-4 text-white text-2xl bg-black/40 bg-opacity-50 hover:bg-opacity-80 px-4 py-2 rounded-full shadow-lg transition"
         title="إغلاق"
       >
         ✕
@@ -357,7 +360,8 @@
           document.querySelector("img[alt='Main']").onclick = () =>
             openModal(property.mainImage?.imageURL);
 
-          const gallery = document.querySelector(".flex.space-x-4");
+          const gallery = document.getElementById("thumbnail-gallery");
+
           imageList = property.images.map((img) => img.imageURL);
 
           // main image
@@ -423,12 +427,28 @@
       function openModal(src) {
         currentImageIndex = imageList.indexOf(src);
         if (currentImageIndex === -1) currentImageIndex = 0;
-        document.getElementById("modalImage").src = src;
-        document.getElementById("imageModal").classList.remove("hidden");
+
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+
+        modalImg.classList.remove("opacity-0", "scale-90");
+        modalImg.classList.add("opacity-100", "scale-100");
+        modalImg.src = src;
+
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100", "pointer-events-auto");
       }
 
       function closeModal() {
-        document.getElementById("imageModal").classList.add("hidden");
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        modal.classList.add("pointer-events-none");
+
+        modalImg.classList.remove("opacity-100", "scale-100");
+        modalImg.classList.add("opacity-0", "scale-90");
       }
 
       // Show next image
@@ -446,6 +466,31 @@
           (currentImageIndex - 1 + imageList.length) % imageList.length;
         document.getElementById("modalImage").src =
           imageList[currentImageIndex];
+      }
+
+      function showNextImage(event) {
+        event.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % imageList.length;
+        transitionImage(imageList[currentImageIndex]);
+      }
+
+      function showPrevImage(event) {
+        event.stopPropagation();
+        currentImageIndex =
+          (currentImageIndex - 1 + imageList.length) % imageList.length;
+        transitionImage(imageList[currentImageIndex]);
+      }
+
+      function transitionImage(newSrc) {
+        const img = document.getElementById("modalImage");
+        img.classList.remove("opacity-100", "scale-100");
+        img.classList.add("opacity-0", "scale-90");
+
+        setTimeout(() => {
+          img.src = newSrc;
+          img.classList.remove("opacity-0", "scale-90");
+          img.classList.add("opacity-100", "scale-100");
+        }, 200);
       }
     </script>
   </body>
