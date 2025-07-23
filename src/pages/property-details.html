@@ -495,6 +495,18 @@
           img.classList.add("opacity-100", "scale-100");
         }, 200);
       }
+      document.addEventListener("keydown", (event) => {
+        const modal = document.getElementById("imageModal");
+        const isModalOpen = modal.classList.contains("opacity-100");
+
+        if (!isModalOpen) return;
+
+        if (event.key === "ArrowRight") {
+          showNextImage(event);
+        } else if (event.key === "ArrowLeft") {
+          showPrevImage(event);
+        }
+      });
     </script>
   </body>
 </html>
