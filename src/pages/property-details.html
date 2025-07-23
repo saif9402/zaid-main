@@ -54,7 +54,7 @@
           class="w-full h-48 sm:h-64 md:h-96 object-cover rounded-lg mt-4"
         />
 
-        <div class="flex space-x-4 rtl:space-x-reverse overflow-x-auto m-4">
+        <div class="flex gap-x-4 overflow-x-auto m-4">
           <img src="" alt="Image" class="h-28 w-48 object-cover rounded-lg" />
         </div>
 
@@ -159,23 +159,25 @@
     <!-- Image Modal with Prev/Next -->
     <div
       id="imageModal"
-      class="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center hidden"
+      class="fixed inset-0 z-50 bg-white rounded-2xl shadow-2xl bg-opacity-80 flex items-center justify-center hidden"
     >
       <button
         onclick="showPrevImage(event)"
-        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4"
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
         title="التالي"
       >
         ‹
       </button>
+
       <img id="modalImage" class="max-w-full max-h-full rounded shadow-lg" />
       <button
         onclick="showNextImage(event)"
-        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4"
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white text-3xl px-4 py-2 rounded-full shadow-lg transition"
         title="السابق"
       >
         ›
       </button>
+
       <button
         onclick="closeModal()"
         class="absolute top-4 right-4 text-white text-2xl"
