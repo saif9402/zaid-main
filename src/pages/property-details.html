@@ -156,13 +156,33 @@
       </section>
     </main>
 
-    <!-- Image Modal -->
+    <!-- Image Modal with Prev/Next -->
     <div
       id="imageModal"
-      class="fixed inset-0 z-5 bg-transparent bg-opacity-80 flex items-center justify-center hidden"
-      onclick="closeModal()"
+      class="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center hidden"
     >
+      <button
+        onclick="showPrevImage(event)"
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4"
+        title="التالي"
+      >
+        ‹
+      </button>
       <img id="modalImage" class="max-w-full max-h-full rounded shadow-lg" />
+      <button
+        onclick="showNextImage(event)"
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4"
+        title="السابق"
+      >
+        ›
+      </button>
+      <button
+        onclick="closeModal()"
+        class="absolute top-4 right-4 text-white text-2xl"
+        title="إغلاق"
+      >
+        ✕
+      </button>
     </div>
 
     <footer class="bg-gray-900 text-gray-300 py-10">
@@ -336,15 +356,31 @@
             openModal(property.mainImage?.imageURL);
 
           const gallery = document.querySelector(".flex.space-x-4");
-          gallery.innerHTML = property.images
+          imageList = property.images.map((img) => img.imageURL);
+
+          // main image
+          const mainImg = document.querySelector("img[alt='Main']");
+          mainImg.src = property.mainImage?.imageURL;
+          mainImg.onclick = () => openModal(property.mainImage?.imageURL);
+
+          // thumbnails
+          gallery.innerHTML = imageList
             .map(
-              (img) =>
-                `<img src="${img.imageURL}" alt="Image"
-        onclick="openModal('${img.imageURL}')"
-        class="h-28 w-48 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-200"
-      />`
+              (imgURL) => `
+                <img
+                  src="${imgURL}"
+                  alt="Image"
+                  onclick="openModal('${imgURL}')"
+                  class="h-28 w-48 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform duration-200"
+                />
+              `
             )
             .join("");
+
+          // Include main image in modal list if needed
+          if (property.mainImage?.imageURL) {
+            imageList.unshift(property.mainImage.imageURL);
+          }
 
           document.getElementById("property-type").textContent = property.type;
           document.getElementById("property-area").textContent =
@@ -378,15 +414,36 @@
         }
       });
 
+      let imageList = []; // All image URLs
+      let currentImageIndex = 0;
+
+      // Open modal and track image index
       function openModal(src) {
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        modalImg.src = src;
-        modal.classList.remove("hidden");
+        currentImageIndex = imageList.indexOf(src);
+        if (currentImageIndex === -1) currentImageIndex = 0;
+        document.getElementById("modalImage").src = src;
+        document.getElementById("imageModal").classList.remove("hidden");
       }
 
       function closeModal() {
         document.getElementById("imageModal").classList.add("hidden");
+      }
+
+      // Show next image
+      function showNextImage(event) {
+        event.stopPropagation(); // prevent modal close
+        currentImageIndex = (currentImageIndex + 1) % imageList.length;
+        document.getElementById("modalImage").src =
+          imageList[currentImageIndex];
+      }
+
+      // Show previous image
+      function showPrevImage(event) {
+        event.stopPropagation();
+        currentImageIndex =
+          (currentImageIndex - 1 + imageList.length) % imageList.length;
+        document.getElementById("modalImage").src =
+          imageList[currentImageIndex];
       }
     </script>
   </body>
