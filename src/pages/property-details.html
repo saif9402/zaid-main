@@ -51,7 +51,7 @@
         <img
           src=""
           alt="Main"
-          class="w-full h-64 sm:h-80 md:h-[80vh] object-cover rounded-lg mt-4"
+          class="w-full h-64 sm:h-80 md:h-[75vh] object-cover rounded-lg mt-4"
         />
 
         <div
@@ -192,6 +192,16 @@
         ✕
       </button>
     </div>
+
+    <section class="max-w-6xl mx-auto mt-12 p-6">
+      <h3 class="text-2xl font-bold mb-4">عقارات موصى بها</h3>
+      <div
+        id="recommended-properties"
+        class="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+      >
+        <!-- Cards will be inserted here -->
+      </div>
+    </section>
 
     <footer class="bg-gray-900 text-gray-300 py-10">
       <div
@@ -508,6 +518,56 @@
         } else if (event.key === "Escape") {
           closeModal();
         }
+      });
+
+      async function loadRecommendedProperties() {
+        try {
+          const res = await fetch(
+            "/api/Property/GetAllProperties?pageNumber=1&pageSize=6"
+          );
+          const data = await res.json();
+
+          if (!data.succeeded) {
+            console.warn("Failed to fetch recommended properties");
+            return;
+          }
+
+          const container = document.getElementById("recommended-properties");
+          container.innerHTML = data.data
+            .map((property) => {
+              return `
+          <div class="min-w-[250px] bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer snap-start">
+            <a href="property-details.html?id=${property.id}">
+              <img
+                src="${
+                  property.mainImage?.imageURL ||
+                  "https://via.placeholder.com/250x150"
+                }"
+                alt="${property.name}"
+                class="w-full h-40 object-cover rounded-t-lg"
+              />
+              <div class="p-4">
+                <h4 class="font-bold text-lg truncate">${property.name}</h4>
+                <p class="text-sm text-gray-600 truncate">${
+                  property.location
+                }</p>
+                <p class="text-sm text-blue-700 mt-2 font-semibold">
+                  ${property.status === "إيجار" ? "إيجار: " : "سعر البيع: "}
+                  ${property.price} جنيه
+                </p>
+              </div>
+            </a>
+          </div>
+        `;
+            })
+            .join("");
+        } catch (error) {
+          console.error("Error loading recommended properties", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadRecommendedProperties();
       });
     </script>
   </body>
