@@ -398,40 +398,41 @@
               "bg-white rounded-xl shadow-md overflow-hidden border transition-transform transform hover:scale-105";
 
             card.innerHTML = `
-            <a href="pages/property-details.html?id=${property.id}" >
-              <div class="relative">
-                <img src="${
-                  property.mainImage?.imageURL ||
-                  "https://via.placeholder.com/350x200"
-                }" alt="${property.name}" class="w-full h-48 object-cover" />
-                <div class="absolute top-3 left-3 bg-green-100 text-green-700 text-xs px-2 py-1 rounded">
-                  ${property.status || "For Sale"}
-                </div>
-                <div class="absolute top-3 right-3 bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded">
-                  ${property.type || "Property"}
-                </div>
-              </div>
-
-              <div class="p-4 space-y-2">
-                <h3 class="text-lg font-semibold truncate">${property.name}</h3>
-                <p class="text-blue-600 font-bold">${property.price.toLocaleString()} جنيه مصري</p>
-                <p class="text-sm text-gray-500 flex items-center gap-1">
-                  <i class="fas fa-map-marker-alt text-red-500"></i>
-                  ${property.location}
-                </p>
-
-
-                <div class="text-sm text-gray-600">
-                  ${property.area || 0} م²
-                </div>
-                </a>
-
-                <a href="pages/contact.html"
-                <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded transition-transform transform hover:scale-105">
-                  تواصل معنا
-                </button>
-                </a>
-              </div>
+            <a href="property-details.html?id=${property.id}" >
+        <img
+          src="${
+            property.mainImage?.imageURL ||
+            "https://via.placeholder.com/400x200"
+          }"
+          alt="Property Image"
+          class="w-full h-40 sm:h-48 object-cover" 
+        />
+        <div class="p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="bg-green-100 text-green-700 px-2 py-1 text-xs rounded-full">${
+              property.status
+            }</span>
+            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs rounded-full">${
+              property.type
+            }</span>
+          </div>
+          <h2 class="text-base sm:text-lg font-semibold truncate">${
+            property.name
+          }</h2>
+          <p class="text-blue-600 font-bold text-lg">${property.price.toLocaleString()} جنيه مصري</p>
+          <p class="text-sm text-gray-500">
+            <i class="fas fa-map-marker-alt text-red-500"></i>
+            ${property.location}</p>
+          <div class="mt-2 text-sm text-gray-600">
+            Area: ${property.area} ²م
+          </div>
+          </a>
+          <a href="pages/contact.html">
+          <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 ransition-transform transform hover:scale-105">
+            تواصل معنا
+          </button>
+          </a>
+        </div>
             `;
 
             container.appendChild(card);
