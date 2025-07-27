@@ -1117,6 +1117,11 @@
       height: calc(var(--spacing) * 100);
     }
   }
+  .md\:h-auto {
+    @media (width >= 48rem) {
+      height: auto;
+    }
+  }
   .md\:h-full {
     @media (width >= 48rem) {
       height: 100%;
