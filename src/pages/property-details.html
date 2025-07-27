@@ -536,29 +536,27 @@
           container.innerHTML = data.data
             .map((property) => {
               return `
-          <div class="min-w-[250px] bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 cursor-pointer snap-start">
-            <a href="property-details.html?id=${property.id}">
-              <img
-                src="${
-                  property.mainImage?.imageURL ||
-                  "https://via.placeholder.com/250x150"
-                }"
-                alt="${property.name}"
-                class="w-full h-40 object-cover rounded-t-lg"
-              />
-              <div class="p-4">
-                <h4 class="font-bold text-lg truncate">${property.name}</h4>
-                <p class="text-sm text-gray-600 truncate">${
-                  property.location
-                }</p>
-                <p class="text-sm text-blue-700 mt-2 font-semibold">
-                  ${property.status === "إيجار" ? "إيجار: " : "سعر البيع: "}
-                  ${property.price} جنيه
-                </p>
-              </div>
-            </a>
+      <div class="min-w-[250px] bg-white rounded-lg shadow-md hover:shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer snap-start">
+        <a href="property-details.html?id=${property.id}">
+          <img
+            src="${
+              property.mainImage?.imageURL ||
+              "https://via.placeholder.com/250x150"
+            }"
+            alt="${property.name}"
+            class="w-full h-40 object-cover rounded-t-lg"
+          />
+          <div class="p-4">
+            <h4 class="font-bold text-lg truncate">${property.name}</h4>
+            <p class="text-sm text-gray-600 truncate">${property.location}</p>
+            <p class="text-sm text-blue-700 mt-2 font-semibold">
+              ${property.status === "إيجار" ? "إيجار: " : "سعر البيع: "}
+              ${property.price} جنيه
+            </p>
           </div>
-        `;
+        </a>
+      </div>
+    `;
             })
             .join("");
         } catch (error) {
