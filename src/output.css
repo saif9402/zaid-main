@@ -1135,6 +1135,11 @@
       height: 60vh;
     }
   }
+  .md\:h-\[80vh\] {
+    @media (width >= 48rem) {
+      height: 80vh;
+    }
+  }
   .md\:h-auto {
     @media (width >= 48rem) {
       height: auto;
