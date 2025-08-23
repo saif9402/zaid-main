@@ -74,13 +74,9 @@
 
     <!-- Stats Section -->
     <section class="bg-white py-12 text-center">
-<<<<<<< HEAD
       <div
         class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
       >
-=======
-      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row space-between gap-16">
->>>>>>> 79b244c15295cc4f40f2ca8ed46e648e71f0d031
         <div>
           <img
             src="img/Home.png"
@@ -88,11 +84,7 @@
             class="mx-auto h-8 mb-2"
           />
           <div class="text-2xl font-bold">
-<<<<<<< HEAD
             <span id="propertiesCount" class="counter" data-target="0">0</span>+
-=======
-            <span class="counter" id="property-counter"></span>+
->>>>>>> 79b244c15295cc4f40f2ca8ed46e648e71f0d031
           </div>
           <p>العقارات المدرجة</p>
         </div>
@@ -107,17 +99,6 @@
           </div>
           <p>عملاء سعداء</p>
         </div>
-<<<<<<< HEAD
-
-=======
-        <!-- <div>
-          <img src="img/home2.png" alt="أيقونة خبرة" class="mx-auto h-8 mb-2" />
-          <div class="text-2xl font-bold">
-            <span class="counter" data-target="15">0</span>+
-          </div>
-          <p>سنوات الخبرة</p>
-        </div> -->
->>>>>>> 79b244c15295cc4f40f2ca8ed46e648e71f0d031
         <div>
           <img
             src="img/rating.png"
@@ -218,15 +199,18 @@
             البحر الأحمر.
           </p>
           <div class="flex space-x-4 mt-4 text-white text-lg">
-            <a href="https://www.facebook.com/profile.php?id=61579728182774&sk=about" class="hover:text-blue-400" target="_blank"
+            <a
+              href="https://www.facebook.com/profile.php?id=61579728182774&sk=about"
+              class="hover:text-blue-400"
+              target="_blank"
               ><i class="fab fa-facebook-f"></i
             ></a>
-            <a href="https://www.instagram.com/shed.wan020/" class="hover:text-pink-400" target="_blank"
+            <a
+              href="https://www.instagram.com/shed.wan020/"
+              class="hover:text-pink-400"
+              target="_blank"
               ><i class="fab fa-instagram"></i
             ></a>
-            <!-- <a href="#" class="hover:text-blue-300"
-              ><i class="fab fa-twitter"></i
-            ></a> -->
           </div>
         </div>
 
@@ -510,40 +494,30 @@
           });
         } catch (error) {
           console.error("Failed to load properties:", error);
-          document.getElementById("property-list").innerHTML =
-<<<<<<< HEAD
-            "<p>Error loading properties.</p>";
-          // Fallback the counter to 0 on error
-          const propsCounter = document.getElementById("propertiesCount");
-          if (propsCounter) propsCounter.setAttribute("data-target", "0");
-=======
-            `<p class="text-center">There is no properties.</p>`;
->>>>>>> 79b244c15295cc4f40f2ca8ed46e648e71f0d031
+          document.getElementById(
+            "property-list"
+          ).innerHTML = `<p class="text-center">There is no properties.</p>`;
         }
       }
 
       async function CountAllProperties() {
         try {
-            const res = await fetch("/api/Property/CountProperties");
+          const res = await fetch("/api/Property/CountProperties");
 
-            const raw = await res.text();
-            console.log("API raw response:", raw);
-            const count = Number(raw);
-            const container = document.getElementById("property-counter");
+          const raw = await res.text();
+          console.log("API raw response:", raw);
+          const count = Number(raw);
+          const container = document.getElementById("property-counter");
 
-            container.textContent = isNaN(count) ? "0" : count;
-        }catch (error) {
-            console.error("Failed to load properties:", error);
-            document.getElementById("property-counter").textContent = "0";
-          }
+          container.textContent = isNaN(count) ? "0" : count;
+        } catch (error) {
+          console.error("Failed to load properties:", error);
+          document.getElementById("property-counter").textContent = "0";
         }
-
-
-
+      }
 
       CountAllProperties();
       loadProperties();
-
     </script>
   </body>
 </html>
