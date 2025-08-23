@@ -395,10 +395,6 @@
             return;
           }
 
-          const count = result.data.length; 
-          const counterEl = document.getElementById("property-counter");
-          counterEl.innerHTML = count;
-
           const properties = result.data.slice(0, 3); // First 3 properties
           const container = document.getElementById("property-list");
           container.innerHTML = "";
