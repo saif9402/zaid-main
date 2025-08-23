@@ -451,10 +451,29 @@
         }
       }
 
+      async function CountAllProperties(){
+        try{
+          const res = await fetch("/api/Property/CountProperties")
+          const result = await res.json();
+          
+          if (!result.succeeded || !result.data || result.data.length === 0) {
+            document.getElementById("property-counter").innerHTML =
+              "<p>0</p>";
+            return;
+          }
 
+          const count = result.data;
+          const container = document.getElementById("property-counter");
+          container.innerHTML = `<p>${count}</p>`;
+        }
+        catch (error) {
+          console.error("Failed to load properties:", error);
+          document.getElementById("property-counter").innerHTML =
+            "<p>0</p>";
+        }
+      }
 
-      
-
+      CountAllProperties();
       loadProperties();
 
     </script>
