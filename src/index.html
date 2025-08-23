@@ -82,7 +82,7 @@
             class="mx-auto h-8 mb-2"
           />
           <div class="text-2xl font-bold">
-            <span class="counter" data-target="500">0</span>+
+            <span class="counter" data-target="500" id="property-counter">0</span>+
           </div>
           <p>العقارات المدرجة</p>
         </div>
@@ -395,6 +395,10 @@
             return;
           }
 
+          const count = result.data.length; 
+          const counterEl = document.getElementById("property-counter");
+          counterEl.innerHTML = count;
+
           const properties = result.data.slice(0, 3); // First 3 properties
           const container = document.getElementById("property-list");
           container.innerHTML = "";
@@ -451,7 +455,12 @@
         }
       }
 
+
+
+      
+
       loadProperties();
+
     </script>
   </body>
 </html>
