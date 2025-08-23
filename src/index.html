@@ -82,7 +82,7 @@
             class="mx-auto h-8 mb-2"
           />
           <div class="text-2xl font-bold">
-            <span class="counter" id="property-counter">0</span>+
+            <span class="counter" id="property-counter"></span>+
           </div>
           <p>العقارات المدرجة</p>
         </div>
@@ -452,20 +452,21 @@
       }
 
       async function CountAllProperties() {
-      try {
-        const res = await fetch("/api/Property/CountProperties");
-        const result = await res.json();
-        console.log("API response:", result); // should log 1
+        try {
+            const res = await fetch("/api/Property/CountProperties");
 
-        const count = Number(result); // result itself is the number
-        const container = document.getElementById("property-counter");
+            const raw = await res.text();
+            console.log("API raw response:", raw);
+            const count = Number(raw);
+            const container = document.getElementById("property-counter");
 
-        container.textContent = isNaN(count) ? "0" : count;
-      } catch (error) {
-        console.error("Failed to load properties:", error);
-        document.getElementById("property-counter").textContent = "0";
-      }
-    }
+            container.textContent = isNaN(count) ? "0" : count;
+        }catch (error) {
+            console.error("Failed to load properties:", error);
+            document.getElementById("property-counter").textContent = "0";
+          }
+        }
+
 
 
 
