@@ -75,7 +75,7 @@
     <!-- Stats Section -->
     <section class="bg-white py-12 text-center">
       <div
-        class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+        class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
       >
         <div>
           <img
@@ -84,7 +84,7 @@
             class="mx-auto h-8 mb-2"
           />
           <div class="text-2xl font-bold">
-            <span class="counter" data-target="500">0</span>+
+            <span id="propertiesCount" class="counter" data-target="0">0</span>+
           </div>
           <p>العقارات المدرجة</p>
         </div>
@@ -99,13 +99,7 @@
           </div>
           <p>عملاء سعداء</p>
         </div>
-        <div>
-          <img src="img/home2.png" alt="أيقونة خبرة" class="mx-auto h-8 mb-2" />
-          <div class="text-2xl font-bold">
-            <span class="counter" data-target="15">0</span>+
-          </div>
-          <p>سنوات الخبرة</p>
-        </div>
+
         <div>
           <img
             src="img/rating.png"
@@ -277,49 +271,72 @@
       </div>
     </footer>
     <script>
-      function animateCounter(element, target, isDecimal = false) {
-        const duration = 5000;
+      function animateCounter(
+        element,
+        target,
+        isDecimal = false,
+        start = null,
+        duration = 1500
+      ) {
         const frameRate = 30;
-        const totalFrames = duration / (1000 / frameRate);
+        const totalFrames = Math.max(
+          1,
+          Math.round(duration / (1000 / frameRate))
+        );
         let frame = 0;
 
-        const count = () => {
+        const from =
+          start === null ? parseFloat(element.textContent) || 0 : start;
+        const to = target;
+
+        function tick() {
           frame++;
-          const progress = frame / totalFrames;
-          const current = isDecimal
-            ? (target * progress).toFixed(1)
-            : Math.floor(target * progress);
-
-          element.textContent = current;
-
+          const progress = Math.min(1, frame / totalFrames);
+          const value = from + (to - from) * progress;
+          element.textContent = isDecimal
+            ? value.toFixed(1)
+            : Math.floor(value);
           if (frame < totalFrames) {
-            requestAnimationFrame(count);
+            requestAnimationFrame(tick);
           } else {
-            element.textContent = isDecimal ? target.toFixed(1) : target;
+            element.textContent = isDecimal ? to.toFixed(1) : to;
+            element.dataset.animated = "1";
           }
-        };
+        }
 
-        requestAnimationFrame(count);
+        requestAnimationFrame(tick);
       }
 
+      // Helper to know if an element is currently visible
+      function isInViewport(el) {
+        const r = el.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom >= 0;
+      }
+
+      // Only animates when the element enters the viewport, once
       function initCounters() {
         const counters = document.querySelectorAll(".counter");
         const observer = new IntersectionObserver(
-          (entries, observer) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseFloat(el.getAttribute("data-target"));
-                const isDecimal = el.getAttribute("data-decimal") === "true";
-                animateCounter(el, target, isDecimal);
-                observer.unobserve(el); // Only count once
+              if (!entry.isIntersecting) return;
+
+              const el = entry.target;
+              if (el.dataset.animated === "1") {
+                obs.unobserve(el);
+                return;
               }
+
+              const target = parseFloat(el.getAttribute("data-target")) || 0;
+              const isDecimal = el.getAttribute("data-decimal") === "true";
+              animateCounter(el, target, isDecimal);
+              obs.unobserve(el);
             });
           },
           { threshold: 0.6 }
         );
 
-        counters.forEach((counter) => observer.observe(counter));
+        counters.forEach((c) => observer.observe(c));
       }
 
       document.addEventListener("DOMContentLoaded", initCounters);
@@ -391,13 +408,39 @@
           const res = await fetch("/api/Property/GetAllProperties");
           const result = await res.json();
 
-          if (!result.succeeded || !result.data || result.data.length === 0) {
+          if (
+            !result.succeeded ||
+            !Array.isArray(result.data) ||
+            result.data.length === 0
+          ) {
             document.getElementById("property-list").innerHTML =
               "<p>No properties found.</p>";
+            // Still set count to 0
+            const propsCounter = document.getElementById("propertiesCount");
+            if (propsCounter) propsCounter.setAttribute("data-target", "0");
             return;
           }
 
-          const properties = result.data.slice(0, 3); // First 3 properties
+          // ✅ Set dynamic count for the "properties" counter
+          const total = result.data.length;
+          const propsCounter = document.getElementById("propertiesCount");
+          if (propsCounter) {
+            const isDecimal =
+              propsCounter.getAttribute("data-decimal") === "true";
+            propsCounter.setAttribute("data-target", String(total));
+
+            // If the counter is already on screen (or already animated), re-animate to the new total
+            if (
+              propsCounter.dataset.animated === "1" ||
+              isInViewport(propsCounter)
+            ) {
+              const currentVal = parseFloat(propsCounter.textContent) || 0;
+              animateCounter(propsCounter, total, isDecimal, currentVal);
+            }
+          }
+
+          // Render featured properties (your existing code)
+          const properties = result.data.slice(0, 3);
           const container = document.getElementById("property-list");
           container.innerHTML = "";
 
@@ -407,42 +450,43 @@
               "bg-white rounded-xl shadow-md overflow-hidden border transition-transform transform hover:scale-105";
 
             card.innerHTML = `
-            <a href="pages/property-details.html?id=${property.id}" >
-        <img
-          src="${
-            property.mainImage?.imageURL ||
-            "https://via.placeholder.com/400x200"
-          }"
-          alt="Property Image"
-          class="w-full h-40 sm:h-48 object-cover" 
-        />
-        <div class="p-4">
-          <div class="flex justify-between items-center mb-2">
-            <span class="bg-green-100 text-green-700 px-2 py-1 text-xs rounded-full">${
-              property.status
-            }</span>
-            <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs rounded-full">${
-              property.type
-            }</span>
-          </div>
-          <h2 class="text-base sm:text-lg font-semibold truncate">${
-            property.name
-          }</h2>
-          <p class="text-blue-600 font-bold text-lg">${property.price.toLocaleString()} جنيه مصري</p>
-          <p class="text-sm text-gray-500">
-            <i class="fas fa-map-marker-alt text-red-500"></i>
-            ${property.location}</p>
-          <div class="mt-2 text-sm text-gray-600">
-            المساحة: ${property.area} م²
-          </div>
+          <a href="pages/property-details.html?id=${property.id}">
+            <img
+              src="${
+                property.mainImage?.imageURL ||
+                "https://via.placeholder.com/400x200"
+              }"
+              alt="Property Image"
+              class="w-full h-40 sm:h-48 object-cover"
+            />
+            <div class="p-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-green-100 text-green-700 px-2 py-1 text-xs rounded-full">${
+                  property.status
+                }</span>
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 text-xs rounded-full">${
+                  property.type
+                }</span>
+              </div>
+              <h2 class="text-base sm:text-lg font-semibold truncate">${
+                property.name
+              }</h2>
+              <p class="text-blue-600 font-bold text-lg">${property.price.toLocaleString()} جنيه مصري</p>
+              <p class="text-sm text-gray-500">
+                <i class="fas fa-map-marker-alt text-red-500"></i>
+                ${property.location}
+              </p>
+              <div class="mt-2 text-sm text-gray-600">
+                المساحة: ${property.area} م²
+              </div>
+            </div>
           </a>
           <a href="pages/contact.html">
-          <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 ransition-transform transform hover:scale-105">
-            تواصل معنا
-          </button>
+            <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-transform transform hover:scale-105">
+              تواصل معنا
+            </button>
           </a>
-        </div>
-            `;
+        `;
 
             container.appendChild(card);
           });
@@ -450,6 +494,9 @@
           console.error("Failed to load properties:", error);
           document.getElementById("property-list").innerHTML =
             "<p>Error loading properties.</p>";
+          // Fallback the counter to 0 on error
+          const propsCounter = document.getElementById("propertiesCount");
+          if (propsCounter) propsCounter.setAttribute("data-target", "0");
         }
       }
 
