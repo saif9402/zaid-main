@@ -452,23 +452,21 @@
       }
 
       async function CountAllProperties() {
-        try {
-          const res = await fetch("/api/Property/CountProperties");
-          const result = await res.json();
+      try {
+        const res = await fetch("/api/Property/CountProperties");
+        const result = await res.json();
+        console.log("API response:", result); // should log 1
 
-          if (!result.succeeded || result.data == null) {
-            document.getElementById("property-counter").textContent = "0";
-            return;
-          }
-        
-          const count = Number(result.data); // ensure it's numeric
-          const container = document.getElementById("property-counter");
-          container.textContent = count;
-          }catch (error) {
-          console.error("Failed to load properties:", error);
-          document.getElementById("property-counter").textContent = "0";
-        }
+        const count = Number(result); // result itself is the number
+        const container = document.getElementById("property-counter");
+
+        container.textContent = isNaN(count) ? "0" : count;
+      } catch (error) {
+        console.error("Failed to load properties:", error);
+        document.getElementById("property-counter").textContent = "0";
       }
+    }
+
 
 
       CountAllProperties();
