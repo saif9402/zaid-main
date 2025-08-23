@@ -456,7 +456,7 @@
           const res = await fetch("/api/Property/CountProperties")
           const result = await res.json();
           
-          if (!result.succeeded || !result.data || result.data.length === 0) {
+          if (!result.succeeded || !result.data) {
             document.getElementById("property-counter").innerHTML =
               "<p>0</p>";
             return;
